@@ -142,9 +142,6 @@ if archivo_registros_presencia is not None:
         fig.update_traces(textposition='inside', textinfo='percent+label')
         st.plotly_chart(fig)    
 
-    # Mapa de registros de presencia
-    st.header('Mapa de registros de presencia')
-    st.map(registros_presencia.rename(columns = {'decimalLongitude':'longitude', 'decimalLatitude':'latitude'}))
 
     with col1:
         # Mapa de calor y de registros agrupados
@@ -192,3 +189,7 @@ if archivo_registros_presencia is not None:
         folium.LayerControl().add_to(m)        
         # Despliegue del mapa
         folium_static(m)   
+
+    # Mapa de registros de presencia
+    st.header('Mapa de registros de presencia')
+    st.map(registros_presencia.rename(columns = {'decimalLongitude':'longitude', 'decimalLatitude':'latitude'}))
